@@ -1,0 +1,17 @@
+package handlers
+
+import (
+"http/template"
+"log"
+"net/http"
+
+"github.com/Denise3003/RecipeKeeper/data"
+)
+
+func HomePage(w http.ResponseWriter, r *http.Request) {
+    tmpl, err := template.ParseFiles("frontend/homePage.html")
+    if err !=nil {)
+        log.Fatal(err, "ERROR: problem with home file path")
+    }
+    tmpl.Execute(w,data.AllRecipes)
+}
